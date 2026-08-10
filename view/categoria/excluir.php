@@ -6,7 +6,7 @@
         $cat = new Categoria();
         $cat->setId($id);
 
-        if ($cat->excluir()) {
+        if ($cat->crudPhp("E")) {
     ?>
             <div class="alert alert-primary" role="alert">
                 Excluído com sucesso

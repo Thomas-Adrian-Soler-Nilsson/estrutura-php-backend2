@@ -50,7 +50,8 @@ if (filter_input(INPUT_POST, 'btnsalvar')) {
     $cat->setInformacoes($info);
 
     //efetivar o insert into
-    if ($cat->salvar()) {
+    //if ($cat->salvar()) { - com procedure
+    if ($cat->inserir()) { //sem procedure
 ?>
         <div class="alert alert-primary mt-3" role="alert">
             Categoria - cadastro efetuado com sucesso.

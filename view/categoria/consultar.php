@@ -21,7 +21,7 @@
                     <?php
                     include_once '../models/Categoria.php';
                     $cat = new Categoria();
-                    $dados = $cat->listar(null);
+                    $dados = $cat->listarSemProcedure();
                     foreach ($dados as $mostrar) {
                     ?>
                     <tr>
