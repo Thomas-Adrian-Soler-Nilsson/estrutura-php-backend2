@@ -1,0 +1,15 @@
+Métodos usados na edição de Cliente e Fornecedor
+
+Fluxo comum de edição:
+1. listar() — DAO busca os registros ordenados; Controller disponibiliza a lista; a view mostra o botão Editar.
+2. consultarPorId(int $id) — Controller encaminha a consulta ao DAO, que usa SELECT com parâmetro preparado e monta a entidade.
+3. Formulário GET — view/salvar.php carrega entidade pelo id e preenche os campos, incluindo id em campo hidden.
+4. salvar() — Controller lê os campos POST, instancia a entidade e define id quando presente.
+5. ClienteDAO::salvar(Cliente $cliente) / FornecedorDAO::salvar(Fornecedor $fornecedor) — sem id executa INSERT; com id executa UPDATE usando prepared statement.
+6. Redirecionamento para a listagem após sucesso confirma a atualização persistida.
+
+Métodos das entidades utilizados:
+Cliente: getId(), setId(), getNome(), setNome(), getEmail(), setEmail(), getTelefone(), setTelefone().
+Fornecedor: getId(), setId(), getRazaoSocial(), setRazaoSocial(), getEmail(), setEmail(), getTelefone(), setTelefone().
+
+Segurança e integridade: consultas usam parâmetros preparados; IDs são validados como inteiros; valores exibidos são escapados com htmlspecialchars.

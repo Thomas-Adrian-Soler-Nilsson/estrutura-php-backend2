@@ -19,9 +19,9 @@
                 </thead>
                 <tbody>
                     <?php
-                    include_once '../models/Categoria.php';
-                    $cat = new Categoria();
-                    $dados = $cat->listarSemProcedure();
+                    include_once '../controller/CategoriaController.php';
+                    $controller = new CategoriaController();
+                    $dados = $controller->listar();
                     foreach ($dados as $mostrar) {
                     ?>
                     <tr>

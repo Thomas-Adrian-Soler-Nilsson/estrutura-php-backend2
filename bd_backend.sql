@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 -- Banco de dados: `bd_backend`
 --
 
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(150) NOT NULL,
+  `email` varchar(180) NOT NULL,
+  `telefone` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE IF NOT EXISTS `fornecedor` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `razao_social` varchar(180) NOT NULL,
+  `email` varchar(180) NOT NULL,
+  `telefone` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 DELIMITER $$
 --
 -- Procedimentos

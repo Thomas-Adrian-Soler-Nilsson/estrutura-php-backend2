@@ -39,19 +39,10 @@
 <?php
 //verificar se o botão btnsalvar foi acionado
 if (filter_input(INPUT_POST, 'btnsalvar')) {
-    $nome = filter_input(INPUT_POST, 'txtnome');
-    $info = filter_input(INPUT_POST, 'txtinformacoes');
-    //acesso à classe (em models)
-    include_once '../models/Categoria.php';
-    $cat = new Categoria();
-    //enviando os dados do form aos atributos da classe
-    $cat->setId(NULL);
-    $cat->setNome($nome);
-    $cat->setInformacoes($info);
+    require_once '../controller/CategoriaController.php';
+    $cat = new CategoriaController();
 
-    //efetivar o insert into
-    //if ($cat->salvar()) { - com procedure
-    if ($cat->inserir()) { //sem procedure
+    if ($cat->salvar()) { //sem procedure
 ?>
         <div class="alert alert-primary mt-3" role="alert">
             Categoria - cadastro efetuado com sucesso.

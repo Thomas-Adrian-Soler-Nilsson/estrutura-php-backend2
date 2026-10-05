@@ -10,6 +10,8 @@
                     <i class="bi bi-list-task"></i> Consultar Categorias
                 </a>
             </li>
+            <li class="nav-item"><a class="nav-link" href="?p=clientes">Consultar Clientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="?p=fornecedores">Consultar Fornecedores</a></li>
         </ul>
     </div>
 </nav>
