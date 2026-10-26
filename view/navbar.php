@@ -10,8 +10,10 @@
                     <i class="bi bi-list-task"></i> Consultar Categorias
                 </a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="?p=clientes">Consultar Clientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="?p=fornecedores">Consultar Fornecedores</a></li>
+            <li class="nav-item"><a class="nav-link" href="?p=clientes">Clientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="?p=pesquisar/cliente">Pesquisar clientes</a></li>
+            <li class="nav-item"><a class="nav-link" href="?p=fornecedores">Fornecedores</a></li>
+            <li class="nav-item"><a class="nav-link" href="?p=pesquisar/fornecedor">Pesquisar fornecedores</a></li>
         </ul>
     </div>
 </nav>

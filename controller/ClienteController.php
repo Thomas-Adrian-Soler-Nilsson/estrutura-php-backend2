@@ -21,6 +21,11 @@ class ClienteController
         return $this->dao->listar();
     }
 
+    public function pesquisarPorNome(string $nome): array
+    {
+        return $this->dao->pesquisarPorNome($nome);
+    }
+
     public function consultarPorID(int $id): ?Cliente
     {
         return $this->dao->consultarPorID($id);

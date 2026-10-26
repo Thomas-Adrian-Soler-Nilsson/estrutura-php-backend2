@@ -1,0 +1,22 @@
+MÉTODOS UTILIZADOS — PESQUISA DE CLIENTES E FORNECEDORES
+
+1. Formulários GET: capturam o termo de pesquisa e permitem compartilhar/repetir a busca pela URL.
+2. Roteamento por lista permitida: as rotas pesquisar/cliente e pesquisar/fornecedor direcionam às telas correspondentes.
+3. trim(): remove espaços extras das extremidades e evita consultar quando o campo está vazio.
+4. Arquitetura MVC existente: ClienteController e FornecedorController recebem a chamada e encaminham aos DAOs.
+5. Consultas preparadas PDO: ClienteDAO::pesquisarPorNome() e FornecedorDAO::pesquisarPorRazaoSocial() separam o termo do SQL.
+6. SQL LIKE '%termo%': encontra correspondências parciais em qualquer posição do nome ou razão social.
+7. ESCAPE e escaparLike(): tratam %, _ e ! digitados pelo usuário como caracteres literais.
+8. ORDER BY: ordena os resultados alfabeticamente.
+9. htmlspecialchars(): codifica os valores dinâmicos antes da exibição no HTML.
+10. Mensagem de estado vazio: informa quando a busca não encontra registros.
+
+Métodos de pesquisa implementados:
+- ClienteController::pesquisarPorNome(string $nome)
+- ClienteDAO::pesquisarPorNome(string $nome)
+- ClienteDAO::escaparLike(string $termo)
+- FornecedorController::pesquisarPorRazaoSocial(string $razaoSocial)
+- FornecedorDAO::pesquisarPorRazaoSocial(string $razaoSocial)
+- FornecedorDAO::escaparLike(string $termo)
+
+O script database/dados-demo.sql insere registros demonstrativos sem duplicar e-mails já cadastrados.

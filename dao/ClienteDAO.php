@@ -15,6 +15,18 @@ class ClienteDAO
         return $this->conn->query('SELECT * FROM cliente ORDER BY nome')->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function pesquisarPorNome(string $nome): array
+    {
+        $stmt = $this->conn->prepare("SELECT id, nome, email, telefone FROM cliente WHERE nome LIKE :termo ESCAPE '!' ORDER BY nome");
+        $stmt->execute([':termo' => '%' . $this->escaparLike(trim($nome)) . '%']);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    private function escaparLike(string $termo): string
+    {
+        return str_replace(['!', '%', '_'], ['!!', '!%', '!_'], $termo);
+    }
+
     public function consultarPorId(int $id): ?Cliente
     {
         $stmt = $this->conn->prepare('SELECT * FROM cliente WHERE id = ?');

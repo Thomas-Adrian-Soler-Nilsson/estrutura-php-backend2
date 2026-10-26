@@ -8,8 +8,10 @@
         'clientes' => 'cliente/consultar.php',
         'add/cliente' => 'cliente/salvar.php',
         'editar/cliente' => 'cliente/salvar.php',
+        'pesquisar/cliente' => 'cliente/pesquisar.php',
         'fornecedores' => 'fornecedor/consultar.php',
         'add/fornecedor' => 'fornecedor/salvar.php',
         'editar/fornecedor' => 'fornecedor/salvar.php',
+        'pesquisar/fornecedor' => 'fornecedor/pesquisar.php',
         //'editar/categoria' => 'categoria/editar.php',
     ];

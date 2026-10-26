@@ -15,6 +15,18 @@ class FornecedorDAO
         return $this->conn->query('SELECT * FROM fornecedor ORDER BY razao_social')->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function pesquisarPorRazaoSocial(string $razaoSocial): array
+    {
+        $stmt = $this->conn->prepare("SELECT id, razao_social, email, telefone FROM fornecedor WHERE razao_social LIKE :termo ESCAPE '!' ORDER BY razao_social");
+        $stmt->execute([':termo' => '%' . $this->escaparLike(trim($razaoSocial)) . '%']);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    private function escaparLike(string $termo): string
+    {
+        return str_replace(['!', '%', '_'], ['!!', '!%', '!_'], $termo);
+    }
+
     public function consultarPorId(int $id): ?Fornecedor
     {
         $stmt = $this->conn->prepare('SELECT * FROM fornecedor WHERE id = ?');
